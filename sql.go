@@ -6,7 +6,6 @@ import (
 	"reflect"
 	"strings"
 
-	_ "github.com/go-sql-driver/mysql"
 	"github.com/vimcoders/sql"
 )
 
