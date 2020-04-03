@@ -26,6 +26,10 @@ type queryer struct {
 }
 
 func (q *queryer) Clone() sql.Row {
+	if cloner, ok := q.row.(sql.Cloner); ok {
+		return cloner.Clone().(sql.Row)
+	}
+
 	t := reflect.TypeOf(q.row).Elem()
 
 	if t == nil {
