@@ -8,8 +8,8 @@ type Logger interface {
 }
 
 type Packet interface {
-	Encoding() (pkg ...[]byte)
-	Decoding() (pkg ...[]byte)
+	Encoding() (header, pkg []byte)
+	Decoding() (header, pkg []byte)
 }
 
 type Messager interface {
