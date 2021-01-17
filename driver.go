@@ -15,3 +15,8 @@ type Packet interface {
 	Encoding() (pkg []byte)
 	Decoding() (pkg []byte)
 }
+
+type Messager interface {
+	OnMessage(packet Packet) error
+	SendMessage(packet Packet) error
+}
