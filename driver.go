@@ -12,7 +12,6 @@ type Logger interface {
 }
 
 type Packet interface {
-	Encoding() (header, pkg []byte)
-	Uncoding(b []byte)
-	Pkg() (pkg []byte)
+	Encoding() (pkg []byte)
+	Decoding() (pkg []byte)
 }
