@@ -8,11 +8,11 @@ type Logger interface {
 }
 
 type Messager interface {
-	OnMessage(b Buffer) error
-	SendMessage(b Buffer) error
+	OnMessage(message Message) error
+	SendMessage(message Message) error
 }
 
-type Buffer interface {
-	Read() (b []byte, err error)
-	Write(b ...[]byte) (err error)
+type Message interface {
+	Encoding() (b []byte, err error)
+	Decoding() (b []byte, err error)
 }
