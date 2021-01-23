@@ -13,6 +13,8 @@ type Messager interface {
 }
 
 type Message interface {
-	Encoding() (header, message []byte, err error)
-	Decoding() (header, message []byte, err error)
+	Version() []byte
+	Length() []byte
+	Kind() []byte
+	Content() []byte
 }
