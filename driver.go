@@ -16,5 +16,6 @@ type Message interface {
 	Version() []byte
 	Length() []byte
 	Kind() []byte
+	Header() []byte
 	Content() []byte
 }
