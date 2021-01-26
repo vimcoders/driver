@@ -20,6 +20,7 @@ type Message interface {
 type MessageHeader interface {
 	Version() uint8
 	Protocol() uint16
+	Header() (header []byte)
 }
 
 type MessageBody interface {
