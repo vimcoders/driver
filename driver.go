@@ -20,9 +20,9 @@ type Message interface {
 type MessageHeader interface {
 	Version() uint8
 	Protocol() uint16
-	Header() (header []byte)
+	Header() []byte
 }
 
 type MessageBody interface {
-	Body() (body []byte)
+	Body() []byte
 }
