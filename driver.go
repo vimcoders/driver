@@ -13,9 +13,15 @@ type Messager interface {
 }
 
 type Message interface {
-	Version() []byte
-	Length() []byte
-	Kind() []byte
-	Header() []byte
-	Content() []byte
+	MessageHeader
+	MessageBody
+}
+
+type MessageHeader interface {
+	Version() uint8
+	Protocol() uint16
+}
+
+type MessageBody interface {
+	Body() (body []byte)
 }
