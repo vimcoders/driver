@@ -8,21 +8,13 @@ type Logger interface {
 }
 
 type Messager interface {
-	OnMessage(message Message) error
-	SendMessage(message Message) error
+	OnMessage(pkg Package) error
+	SendMessage(pkg Package) error
 }
 
-type Message interface {
-	MessageHeader
-	MessageBody
-}
-
-type MessageHeader interface {
+type Package interface {
 	Version() uint8
 	Protocol() uint16
 	Header() []byte
-}
-
-type MessageBody interface {
 	Body() []byte
 }
