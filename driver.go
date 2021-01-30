@@ -12,7 +12,10 @@ type Messager interface {
 	SendMessage(pkg Package) error
 }
 
-type Package interface {
-	Protocol() uint16
+type Packer interface {
 	Package() (header, body []byte)
+}
+
+type Unpacker interface {
+	Unpackage() (protocol uint16, body []byte)
 }
