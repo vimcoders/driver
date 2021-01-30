@@ -13,8 +13,6 @@ type Messager interface {
 }
 
 type Package interface {
-	Version() uint8
 	Protocol() uint16
-	Header() []byte
-	Body() []byte
+	Package() (header, body []byte)
 }
