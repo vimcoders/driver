@@ -7,11 +7,6 @@ type Logger interface {
 	Error(format string, v ...interface{})
 }
 
-type Messager interface {
-	OnMessage(pkg Unpacker) error
-	SendMessage(pkg Packer) error
-}
-
 type Packer interface {
 	Package() (header, body []byte)
 }
