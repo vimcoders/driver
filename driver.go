@@ -8,8 +8,8 @@ type Logger interface {
 }
 
 type Messager interface {
-	OnMessage(pkg Package) error
-	SendMessage(pkg Package) error
+	OnMessage(pkg Unpacker) error
+	SendMessage(pkg Packer) error
 }
 
 type Packer interface {
