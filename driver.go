@@ -8,15 +8,21 @@ type Logger interface {
 	Close() (err error)
 }
 
+type Header interface {
+	Version() (version uint8)
+	Length() (length uint32)
+	Protocol() (protocol uint16)
+	CheckSum() (code uint32)
+	HeaderCheckSum() (code uint32)
+	ToBytes() (header []byte)
+}
+
+type Message interface {
+	Header() (header Header)
+	Body() (body []byte)
+}
+
 type Messager interface {
-	OnMessage(pkg Unpacker) error
-	SendMessage(pkg Packer) error
-}
-
-type Packer interface {
-	Package() (header, body []byte)
-}
-
-type Unpacker interface {
-	Unpackage() (protocol uint16, body []byte)
+	OnMessage(message Message) (err error)
+	SendMessage(message Message) (err error)
 }
