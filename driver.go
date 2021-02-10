@@ -13,7 +13,6 @@ type Header interface {
 	Length() (length uint32)
 	Protocol() (protocol uint16)
 	CheckSum() (code uint32)
-	HeaderCheckSum() (code uint32)
 	ToBytes() (header []byte)
 }
 
