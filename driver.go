@@ -22,6 +22,7 @@ type Message interface {
 }
 
 type Messager interface {
+	Identify() uint64
 	OnMessage(message Message) (err error)
-	SendMessage(message Message) (err error)
+	PushMessage(message Message) (err error)
 }
