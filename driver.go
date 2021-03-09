@@ -13,16 +13,9 @@ type Header interface {
 	Length() (length uint32)
 	Protocol() (protocol uint16)
 	CheckSum() (code uint32)
-	ToBytes() (header []byte)
 }
 
 type Message interface {
 	Header() (header Header)
-	Body() (body []byte)
-}
-
-type Messager interface {
-	Identify() uint64
-	OnMessage(message Message) (err error)
-	PushMessage(message Message) (err error)
+	ToBytes() (header, pkg []byte)
 }
