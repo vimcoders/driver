@@ -16,6 +16,6 @@ type Header interface {
 }
 
 type Message interface {
-	Header() (header Header)
-	ToBytes() (header, pkg []byte)
+	Header
+	ToBytes() (header, payload []byte)
 }
