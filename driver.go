@@ -9,10 +9,7 @@ type Logger interface {
 }
 
 type Header interface {
-	Version() (version uint8)
-	Length() (length uint32)
-	Protocol() (protocol uint16)
-	CheckSum() (code uint32)
+	Protocol() uint16
 }
 
 type Message interface {
