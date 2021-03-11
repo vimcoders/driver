@@ -12,7 +12,7 @@ type Header interface {
 	Version() uint8
 	Length() uint32
 	Protocol() uint16
-	ToBytes() []byte
+	ToBytes(payload []byte) []byte
 }
 
 type Message interface {
