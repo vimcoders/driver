@@ -9,10 +9,13 @@ type Logger interface {
 }
 
 type Header interface {
+	Version() uint8
+	Length() uint32
 	Protocol() uint16
+	ToBytes() []byte
 }
 
 type Message interface {
-	Header
-	ToBytes() (header, payload []byte)
+	Header() Header
+	Payload() []byte
 }
